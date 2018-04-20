@@ -12,7 +12,11 @@ fi
 
 # Customize to your needs...
 
-export PATH=$HOME/local/bin:$PATH
+export GOROOT=$HOME/local/go
+export GOPATH=$HOME/proj/go
+export GOBIN=$GOPATH/bin
+
+export PATH=$HOME/local/bin:/opt/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:/usr/local/lib/mysql
 
 export BLOCKSIZE=K
