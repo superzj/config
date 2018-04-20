@@ -1,0 +1,53 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+export PATH=$HOME/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:/usr/local/lib/mysql
+
+export BLOCKSIZE=K
+export EDITOR=vim
+export PAGER=more
+export GIT_EDITOR=vim
+export PYTHONDONTWRITEBYTECODE=x
+export SVN_EDITOR=vim
+export CLICOLOR=1
+#export LC_ALL=zh_CN.GBK
+#export LANG=zh_CN.GB18030
+export LANG=zh_CN.UTF-8
+
+# to solve tmux and vim, color
+export TERM="linux"
+
+alias vi='vim'
+alias cls='clear'
+alias h='fc -l'
+alias m=$PAGER
+alias ls='ls -G'
+alias ll='ls -lhaFo'
+alias l='ls -l'
+
+[[ -s "${ZDOTDIR:-$HOME}/.autojump/etc/profile.d/autojump.sh" ]] && source "${ZDOTDIR:-$HOME}/.autojump/etc/profile.d/autojump.sh"
+
+autoload -U compinit && compinit -u
+
+setopt no_nomatch
+
+#grep
+export GREP_COLOR=33
+export GREP_OPTIONS="--exclude=\*.svn\* --exclude=cscope.\* --exclude=\*.b --exclude=\*.o --color=auto --line-number"
+
+alias ta='tmux a -t'
+alias tls='tmux ls'
+alias tnew='tmux new -s'
+alias tkill='tmux kill-session -t'
